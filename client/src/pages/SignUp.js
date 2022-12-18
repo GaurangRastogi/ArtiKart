@@ -34,10 +34,6 @@ const SignUp = ({homepage,signIn}) => {
     console.log("close")
   }
 
-  const onchange = () =>{
-    console.log("change Happened")
-  }
-
   const onclickButton = async () =>{
     const name=document.getElementById("name").value;
     const email=document.getElementById("email").value;
@@ -153,7 +149,6 @@ const SignUp = ({homepage,signIn}) => {
                   label="Name"
                   color="primary"
                   type="text"
-                  onChange={onchange}
                   sx={{
                     mt: 2,
                     mb: 2,
@@ -168,7 +163,6 @@ const SignUp = ({homepage,signIn}) => {
                   label="E-mail"
                   color="primary"
                   type="email"
-                  onChange={onchange}
                   sx={{
                     mb: 2,
                     textAlign: "center",
@@ -182,7 +176,6 @@ const SignUp = ({homepage,signIn}) => {
                   label="Password"
                   color="primary"
                   type="password"
-                  onChange={onchange}
                   sx={{
                     mb: 2,
                     textAlign: "center",

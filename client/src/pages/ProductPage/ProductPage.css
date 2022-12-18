@@ -1,0 +1,42 @@
+.body{
+    display: flex;
+    gap: 3rem;
+    margin: 3rem 20rem 0 20rem;
+    border:3px solid black;
+    padding: 3rem;
+    background-color:  #267280;
+}
+
+.left > img{
+    width:20rem;
+    height:30rem;
+    border-radius: 10px;
+}
+.right > h1{
+    text-align: center;
+    color: white;
+    
+}
+.right{
+    width: 40%;
+}
+.right > p{
+    color:#2e186a;
+    font-weight: bold;
+}
+
+.right >button{
+    display: block;
+    margin:auto;
+    padding: 1rem;
+    width: 15rem;
+    border: 1px solid #2e186a;
+    border-radius: 10px;
+    background-color: #2e186a;
+    color: white;
+    font-weight: bolder;
+    cursor: pointer;
+}
+.right > button:hover{
+    box-shadow: rgb(23 31 114 / 20%) 0px 16px 30px;
+}

@@ -93,3 +93,27 @@ exports.landingPage = (req, res) => {
       res.status(500).send({ message: err.message });
     });
 };
+
+
+exports.searchData = (req,res) =>{
+
+  const data=req.params.name;
+  const product = Product.find({name:data})
+  .then((data)=>{
+      return res.send(data);
+  }).catch((err)=>{
+    res.status(500).send({message:err.message});
+  })
+
+}
+
+
+exports.productData = (req,res) =>{
+  const id=req.params.id;
+  const product = Product.find({_id:id})
+  .then((data)=>{
+      return res.send(data);
+  }).catch((err)=>{
+    res.status(500).send({message:err.message});
+  })
+}

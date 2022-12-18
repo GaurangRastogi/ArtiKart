@@ -16,10 +16,6 @@ const SignInSeller = ({homepage,signUpSeller}) => {
     console.log("close")
   }
 
-  const onchange = () =>{
-    console.log("change Happened")
-  }
-
   const onclickButton = () =>{
       console.log("buton clicked");
   }
@@ -123,7 +119,6 @@ const SignInSeller = ({homepage,signUpSeller}) => {
                   label="E-mail"
                   color="primary"
                   type="email"
-                  onChange={onchange}
                   sx={{
                     mt: 2,
                     mb: 2,
@@ -138,7 +133,6 @@ const SignInSeller = ({homepage,signUpSeller}) => {
                   label="Password"
                   color="primary"
                   type="password"
-                  onChange={onchange}
                   sx={{
                     mb: 2,
                     textAlign: "center",

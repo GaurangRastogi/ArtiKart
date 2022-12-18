@@ -12,12 +12,9 @@ import {
 } from "@mui/material";
 const SignUpSeller = ({homepage,signInSeller}) => {
     const [open,setOpen]=useState(true);
+    
     const onclose =()=>{
         console.log("close")
-    }
-
-    const onchange = () =>{
-        console.log("change Happened")
     }
 
     const onclickButton = () =>{
@@ -122,7 +119,6 @@ const SignUpSeller = ({homepage,signInSeller}) => {
                   label="Name"
                   color="primary"
                   type="text"
-                  onChange={onchange}
                   sx={{
                     mt: 2,
                     mb: 2,
@@ -137,7 +133,6 @@ const SignUpSeller = ({homepage,signInSeller}) => {
                   label="E-mail"
                   color="primary"
                   type="email"
-                  onChange={onchange}
                   sx={{
                     mb: 2,
                     textAlign: "center",
@@ -151,7 +146,6 @@ const SignUpSeller = ({homepage,signInSeller}) => {
                   label="Password"
                   color="primary"
                   type="password"
-                  onChange={onchange}
                   sx={{
                     mb: 2,
                     textAlign: "center",

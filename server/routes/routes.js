@@ -10,6 +10,8 @@ router.post('/signUpSeller',controller.signUpSeller);
 
 router.get('/main',controller.landingPage);
 // router.get('/categories',controller.categories);
-router.get('/product/:id',controller.landingPage);
+router.get('/product/:id',controller.productData);
+
+router.get('/search/:name',controller.searchData);
 
 module.exports=router;

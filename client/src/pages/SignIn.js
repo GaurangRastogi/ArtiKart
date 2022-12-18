@@ -36,10 +36,6 @@ const SignIn = ({ homepage, signUp, landingPage }) => {
     console.log("close");
   };
 
-  const onchange = () => {
-    console.log("change Happened");
-  };
-
   const onclickButton = async () => {
     const email = document.getElementById("email").value;
     const password = document.getElementById("password").value;
@@ -50,7 +46,7 @@ const SignIn = ({ homepage, signUp, landingPage }) => {
     }
     else{
       setOpen(false);
-      landingPage();
+      landingPage(user[0]._id,user[0].name);
     }
   };
 
@@ -150,7 +146,6 @@ const SignIn = ({ homepage, signUp, landingPage }) => {
                   label="E-mail"
                   color="primary"
                   type="email"
-                  onChange={onchange}
                   sx={{
                     mt: 2,
                     mb: 2,
@@ -165,7 +160,6 @@ const SignIn = ({ homepage, signUp, landingPage }) => {
                   label="Password"
                   color="primary"
                   type="password"
-                  onChange={onchange}
                   sx={{
                     mb: 2,
                     textAlign: "center",
