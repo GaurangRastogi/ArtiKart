@@ -1,0 +1,12 @@
+.landingPage{
+    height: 100vh;
+    background-image: url('../../images/bgimage.jpg');
+    background-size: cover;
+}
+/* .landImage{
+    display: block;
+    margin: auto;
+    margin-top:8rem;
+    width: 80%;
+    height: 70vh;
+} */

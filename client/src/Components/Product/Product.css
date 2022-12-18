@@ -1,0 +1,37 @@
+.product{
+    width: 300px;
+    height:400px;
+    background-color:  #d7effa;
+    margin-top: 20px;
+    border-radius: 10px;
+}
+.product *{
+    border-radius: 10px;
+}
+.productType{
+    width: 300px;
+    height:250px;
+}
+
+.productName{
+    display: block;
+    text-align: center;
+    padding: 10px 0;
+    background-color: black;
+    color: white;
+    cursor: pointer;
+    font-size: larger;
+    font-weight: bolder;
+    border-radius: 0px;
+}  
+.productDescription{
+    text-align: center;
+    padding: 1rem;
+}
+.productPrice{
+    display: inline-block;
+    font-size: larger;
+    font-weight: bold;
+    color: #18216d;
+    padding-left:8rem;
+}
