@@ -199,3 +199,17 @@ exports.checkStatus = async(req,res)=>{
     res.send({message:err.message});
   }
 }
+
+exports.postFeedBack=async(req,res)=>{
+  try{
+    const userId=req.body.userId;
+    const productId=req.body.productId;
+    const feedBack=req.body.feedBack;
+
+    await User.findOneAndUpdate({userId:userId,cart:productId},{feedBack:feedBack});
+    res.send({message:"updated"});
+  }
+  catch(err){
+    res.send({message:err.message});
+  }
+}

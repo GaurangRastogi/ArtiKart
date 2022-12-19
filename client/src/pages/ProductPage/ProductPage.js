@@ -48,7 +48,6 @@ function ProductPage({productId,userId}) {
       }
       else{
         removeFromCart();
-
       }
   }
 
@@ -63,6 +62,26 @@ function ProductPage({productId,userId}) {
         setButtonValue("Remove from Cart");
     else
         setButtonValue("Add to Cart");
+  }
+
+  const postFeedBack =async()=>{
+      const idOfUser=userId.split(" ")[0];
+      const feedBack=document.getElementById("feedBackInput");
+      const response = await fetch("http://localhost:3000/cart", {
+        method: "PATCH",
+        headers: {
+          "Content-type": "application/json",
+        },
+        body: JSON.stringify({
+          userId:idOfUser,
+          productId:productId,
+          feedBack:feedBack.value
+        }),
+      });
+    
+      const json = await response.json();
+      console.log(json.message);
+      feedBack.value="";
   }
 
   useEffect(()=>{
@@ -92,7 +111,13 @@ function ProductPage({productId,userId}) {
             pair of earphone and I dont have any words jusy buy it.
           </p>
           <h1>{product.price}</h1>
-          <button id="cart" onClick={()=>cartUtility()}>{buttonValue}</button>    
+          <button id="cart" onClick={()=>cartUtility()}>{buttonValue}</button>  
+          {buttonValue==="Remove from Cart"&&(
+            <div className="feedBack">
+              <input type="text" placeholder="FeedBack" maxLength="5" id="feedBackInput"/>
+              <button onClick={()=>postFeedBack()}>Post</button>
+            </div>
+          )}  
         </div>
       </div>
       ):(

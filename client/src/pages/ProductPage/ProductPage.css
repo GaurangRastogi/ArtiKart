@@ -40,3 +40,38 @@
 .right > button:hover{
     box-shadow: rgb(23 31 114 / 20%) 0px 16px 30px;
 }
+
+
+.feedBack{
+    margin: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.feedBack>input{
+    width: 12rem;
+    padding: 0.8rem;
+    border-radius: 10px;
+    outline: none;
+    color: black;
+    font-weight: bold;
+    font-size: large;
+}
+.feedBack>button{
+    padding: 0.6rem;
+    border-radius: 10px;
+    margin: 1rem;
+    color: white;
+    font-weight: bold;
+    font-size: large;
+    background-color: #2e186a;
+    border: 1px solid #2e186a; 
+    box-shadow: rgb(23 31 114 / 20%) 0px 16px 30px;
+    cursor: pointer;
+}
+.feedBack > button:hover{
+    background-color: rgb(236, 89, 36);
+    border:1px solid rgb(236, 89, 36);
+    color: white;
+}

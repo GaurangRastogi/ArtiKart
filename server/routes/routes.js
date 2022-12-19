@@ -23,5 +23,6 @@ router.get('/cart/:userId/:productId',controller.checkStatus);
 //Posts Requests & Delete Requests
 router.post('/cart',controller.addToCart);
 router.delete('/cart',controller.removeFromCart);
+router.patch('/cart',controller.postFeedBack);
 
 module.exports=router;
