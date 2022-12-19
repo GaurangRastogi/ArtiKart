@@ -136,3 +136,41 @@ exports.cartData = async (req,res) =>{
     res.status(400).send({message:err.message});
   })
 }
+
+exports.addToCart = async (req,res) =>{
+
+  try{
+    const userId=req.body.id;
+    const cart=req.body.prodId;
+    const feedBack="";
+    const quantity=1;
+    const userProduct= new User({
+      userId:userId,
+      cart:cart,
+      feedBack:"",
+      quantity:1
+    });
+
+    await userProduct.save();
+    res.send({message:"Product Added"});
+  }
+  catch(err){
+    res.send({message:err.message});
+  }
+}
+
+exports.removeFromCart = async (req,res)=>{
+
+  try{
+    
+    const userId =req.body.id;
+    const cart=req.body.prodId;
+
+    await User.deleteOne({userId:userId,cart:cart});
+    res.send({message:"Delete From Cart"});
+
+  }
+  catch(err){
+    res.send({message:err.message});
+  }
+}

@@ -17,10 +17,11 @@ router.get('/main',controller.landingPage);
 router.get('/product/:id',controller.productData);
 router.get('/search/:name',controller.searchData);
 router.get('/cart/:userId', controller.cartData);
+// router.get('/cart/:userId')
 //add to cart and remove from cart
 
 //Posts Requests & Delete Requests
-// router.post('cart/product/:id',controller.addToCart);
-// router.delete('/cart/product/:id',controller.removeFromCart);
+router.post('/cart',controller.addToCart);
+router.delete('/cart',controller.removeFromCart);
 
 module.exports=router;

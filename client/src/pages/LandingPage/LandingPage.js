@@ -9,8 +9,9 @@ function LandingPage({ homepage, id }) {
   const [landingState, setlandingState] = useState("mainPage");
   const [buttonState,setButtonState]=useState("add");
 
-  const productClicked = (id,buttonS) => {
-    setlandingState(id);
+  
+  const productClicked = (prod_id,buttonS) => {
+    setlandingState(prod_id);
     setButtonState(buttonS);
   };
   const getProduct = async () => {
