@@ -1,0 +1,6 @@
+.cardData{
+    display: flex;
+    gap:3rem;
+    flex-wrap: wrap;
+    margin: 3rem;
+}

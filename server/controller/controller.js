@@ -117,3 +117,22 @@ exports.productData = (req,res) =>{
     res.status(500).send({message:err.message});
   })
 }
+
+
+exports.cartData = async (req,res) =>{
+  const userId=req.params.userId;
+  const cart=await User.find({userId:userId})
+  .then((cartData)=>{
+      let arr=[];
+      cartData.forEach((data)=>{
+        arr.push(Product.findOne({_id:data.cart}))
+      })
+      return Promise.all(arr);  
+  })
+  .then((arr)=>{
+    res.send(arr);
+  })
+  .catch((err)=>{
+    res.status(400).send({message:err.message});
+  })
+}

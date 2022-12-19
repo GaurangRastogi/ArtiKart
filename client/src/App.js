@@ -6,7 +6,6 @@ import SignInSeller from './pages/SignInSeller';
 import SignUp from './pages/SignUp'
 import SignUpSeller from './pages/SignUpSeller';
 import LandingPage from './pages/LandingPage/LandingPage';
-import ProductPage from './pages/ProductPage/ProductPage';
 
 
 function App() {
@@ -54,7 +53,6 @@ function App() {
       {(renderSwitch(state)==="SignUpUser")&&(<SignUp homepage={homepage} signIn={signIn}/>)}
       {(renderSwitch(state)==="SignUpSeller")&&(<SignUpSeller homepage={homepage} signInSeller={signInSeller}/>)}
       {(renderSwitch(state)==="LandingPage")&&(<LandingPage homepage={homepage} id={state}/>)}
-      {/* <ProductPage/> */}
     </div>
   );
 }

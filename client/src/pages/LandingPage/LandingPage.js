@@ -2,13 +2,16 @@ import React, { useEffect, useState } from "react";
 import Navbar from "../../Components/Navbar/Navbar";
 import Product from "../../Components/Product/Product";
 import ProductPage from "../ProductPage/ProductPage";
+import Cart from "../CartPage/Cart";
 import "./LandingPage.css";
 function LandingPage({ homepage, id }) {
   const [product, setProduct] = useState(null);
   const [landingState, setlandingState] = useState("mainPage");
+  const [buttonState,setButtonState]=useState("add");
 
-  const productClicked = (id) => {
+  const productClicked = (id,buttonS) => {
     setlandingState(id);
+    setButtonState(buttonS);
   };
   const getProduct = async () => {
     const response = await fetch("http://localhost:3000/main");
@@ -19,9 +22,10 @@ function LandingPage({ homepage, id }) {
     getProduct();
   }, []);
 
+  const cartPage = (data) => {
+    setlandingState("cartPage");
+  };
   const setlandingStateFunction = (data) => {
-    // console.log("data",data);
-    console.log("landing", data._id);
     if (data) setlandingState(data._id);
   };
   return (
@@ -30,6 +34,7 @@ function LandingPage({ homepage, id }) {
         homepage={homepage}
         home={() => setlandingState("mainPage")}
         searchUtility={setlandingStateFunction}
+        cartClick={cartPage}
       />
       {landingState === "mainPage" ? (
         <div
@@ -47,12 +52,14 @@ function LandingPage({ homepage, id }) {
               <Product
                 product={prod}
                 key={`${prod._id}  ${i}`}
-                click={() => productClicked(prod._id)}
+                click={() => productClicked(prod._id,"add")}
               />
             ))}
         </div>
+      ) : landingState === "cartPage" ? (
+        <Cart userId={id} click={productClicked}/>
       ) : (
-        <ProductPage productId={landingState} />
+        <ProductPage productId={landingState} buttonState={buttonState}/>
       )}
     </div>
   );

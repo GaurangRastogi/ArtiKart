@@ -8,6 +8,7 @@ var schema=new mongoose.Schema({
 
     cart:{
         type:String,
+        //product Id
     },
 
     feedBack:{

@@ -5,7 +5,7 @@ import Cart from "../../images/cart.svg";
 import Search from "../../images/search.svg";
 import SignOut from '../../images/signOut.svg';
 import "./Navbar.css";
-function Navbar({homepage,home,searchUtility}) {
+function Navbar({homepage,home,searchUtility,cartClick}) {
   const signOut=document.getElementById('right');
  
   const utility=()=>{
@@ -14,12 +14,10 @@ function Navbar({homepage,home,searchUtility}) {
   }
 
   const searchFunction=async () =>{
-
     const searchData=document.getElementById("productSearch");
     const response = await fetch(`http://localhost:3000/search/${searchData.value}`);
 
     const json= await response.json();
-    // console.log(json[0]);
     if(json)
       searchUtility(json[0]);
     searchData.value="";
@@ -31,7 +29,7 @@ function Navbar({homepage,home,searchUtility}) {
       <h1 onClick={()=>home()}>Home</h1>
       <h1>About</h1>
       <h1>Contact</h1>
-      <img src={Cart} alt="Cart" width={"40px"} height={"40px"}/>
+      <img src={Cart} alt="Cart" width={"40px"} height={"40px"} onClick={()=>cartClick()}/>
       <div className="search">
         <input type="search" placeholder="Search Product" id="productSearch"  onChange={()=>utility()}/>
         <img src={Search} alt="search" width={"40px"} height={"40px"}  id="searchButton" onClick={()=>searchFunction()}/>

@@ -1,6 +1,6 @@
 import React, { useEffect,useState } from "react";
 import "./ProductPage.css";
-function ProductPage({productId}) {
+function ProductPage({productId,buttonState}) {
 
   const [product,setProduct]= useState(null);
   const getProduct=async () =>{
@@ -11,9 +11,9 @@ function ProductPage({productId}) {
   }
 
   useEffect(()=>{
-    console.log(productId);
     getProduct();
-  },[])
+  },[productId]);
+
   return (
     <div className="productPage">
       {product?
@@ -35,7 +35,7 @@ function ProductPage({productId}) {
             pair of earphone and I dont have any words jusy buy it.
           </p>
           <h1>{product.price}</h1>
-          <button id="cart">Add To Cart</button>    
+          <button id="cart">{(buttonState==="add")?"Add To Cart":"Remove from Cart"}</button>    
         </div>
       </div>
       ):(
