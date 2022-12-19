@@ -7,12 +7,9 @@ import "./LandingPage.css";
 function LandingPage({ homepage, id }) {
   const [product, setProduct] = useState(null);
   const [landingState, setlandingState] = useState("mainPage");
-  const [buttonState,setButtonState]=useState("add");
-
   
-  const productClicked = (prod_id,buttonS) => {
+  const productClicked = (prod_id) => {
     setlandingState(prod_id);
-    setButtonState(buttonS);
   };
   const getProduct = async () => {
     const response = await fetch("http://localhost:3000/main");
@@ -53,14 +50,14 @@ function LandingPage({ homepage, id }) {
               <Product
                 product={prod}
                 key={`${prod._id}  ${i}`}
-                click={() => productClicked(prod._id,"add")}
+                click={() => productClicked(prod._id)}
               />
             ))}
         </div>
       ) : landingState === "cartPage" ? (
         <Cart userId={id} click={productClicked}/>
       ) : (
-        <ProductPage productId={landingState} buttonState={buttonState}/>
+        <ProductPage productId={landingState} userId={id}/>
       )}
     </div>
   );

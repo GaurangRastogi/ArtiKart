@@ -152,6 +152,9 @@ exports.addToCart = async (req,res) =>{
     });
 
     await userProduct.save();
+
+    const data=await User.find({});
+    // console.log("added",data);
     res.send({message:"Product Added"});
   }
   catch(err){
@@ -167,7 +170,29 @@ exports.removeFromCart = async (req,res)=>{
     const cart=req.body.prodId;
 
     await User.deleteOne({userId:userId,cart:cart});
+    const data=await User.find({});
+    // console.log("deleted",data);
     res.send({message:"Delete From Cart"});
+
+  }
+  catch(err){
+    res.send({message:err.message});
+  }
+}
+
+
+exports.checkStatus = async(req,res)=>{
+  try{
+    const userId=req.params.userId;
+    const productId=req.params.productId;
+
+    const user= await User.find({userId:userId,cart:productId});
+
+    if(user&&user.length>0)
+      res.send({message:"InCart"});
+    
+    else
+      res.send({message:"notInCart"});
 
   }
   catch(err){

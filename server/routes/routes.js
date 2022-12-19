@@ -17,7 +17,7 @@ router.get('/main',controller.landingPage);
 router.get('/product/:id',controller.productData);
 router.get('/search/:name',controller.searchData);
 router.get('/cart/:userId', controller.cartData);
-// router.get('/cart/:userId')
+router.get('/cart/:userId/:productId',controller.checkStatus);
 //add to cart and remove from cart
 
 //Posts Requests & Delete Requests

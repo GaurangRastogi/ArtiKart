@@ -22,7 +22,7 @@ function Cart({ userId, click }) {
           <Product
             key={i}
             product={prod}
-            click={() => click(prod._id, "remove")}
+            click={() => click(prod._id)}
           />
         ))}
     </div>
