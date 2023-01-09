@@ -25,4 +25,21 @@ router.post('/cart',controller.addToCart);
 router.delete('/cart',controller.removeFromCart);
 router.patch('/cart',controller.postFeedBack);
 
+
+
+// API requests for Seller
+
+//
+// /My Products
+// /Add products
+// /Delete Product
+// /Update Product -> Can update quantity
+router.get('/myproducts/:sellerId',controller.myProducts);
+router.get('/product/:productId',controller.myProduct);
+router.get('/search/:sellerId/:name',controller.searchMyProduct);
+router.post('/addProduct',controller.addProduct);
+// router.delete('/product',controller.deleteProduct);
+// router.patch('/updateProduct',controller.updateProduct);
+// 
+
 module.exports=router;

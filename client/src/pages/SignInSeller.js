@@ -10,14 +10,42 @@ import {
   Link,
   Modal,
 } from "@mui/material";
-const SignInSeller = ({homepage,signUpSeller}) => {
+const SignInSeller = ({homepage,signUpSeller,adminPage}) => {
   const [open,setOpen]=useState(true);
   const onclose =()=>{
     console.log("close")
   }
 
-  const onclickButton = () =>{
-      console.log("buton clicked");
+  
+  const Signinsellerutility = async (email, password) => {
+    const response = await fetch("http://localhost:3000/signInSeller", {
+      method: "POST",
+      headers: {
+        "Content-type": "application/json",
+      },
+      body: JSON.stringify({
+        email: email,
+        password: password,
+      }),
+    });
+  
+    const json = await response.json();
+    return json[0];
+  };
+
+  const onclickButton = async () =>{
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
+    
+    const seller=await Signinsellerutility(email,password);
+    // console.log(`adminPage ${seller._id}`);
+    if(seller.length===0){
+      console.log("no user found");
+    }
+    else{
+      setOpen(false);
+      adminPage(seller._id);
+    }
   }
 
   const onclickLink = (params) =>{
@@ -143,7 +171,7 @@ const SignInSeller = ({homepage,signUpSeller}) => {
                 <Button
                   variant="contained"
                   color="secondary"
-                  onClick={onclickButton}
+                  onClick={()=>onclickButton()}
                 >
                   Login 
                 </Button>

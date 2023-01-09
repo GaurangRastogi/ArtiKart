@@ -1,0 +1,32 @@
+.navbaradmin{
+    background-color: #d7effa;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.navbaradmin *{
+    cursor: pointer;
+}
+
+#productSearch{
+    display: block;
+    height: 3rem;
+    width: 20rem;
+    margin: auto;
+    outline: none;
+    border: 1px solid white;
+    border-radius: 10px;
+    box-shadow:  rgba(118, 78, 21, 0.2) 0px 16px 30px;
+    font-size: larger;
+    font-weight: bold;
+    padding: 6px;
+    margin: 1rem;
+    cursor:auto;
+}
+
+.search{
+    display: flex;
+    align-items: center;
+    padding: 3px;
+}
+

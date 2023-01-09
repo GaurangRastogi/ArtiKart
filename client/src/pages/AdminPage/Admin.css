@@ -1,0 +1,12 @@
+.adminPage{
+    position: relative;
+}
+#addItem{
+    position:absolute;
+    right: 100px;
+    margin-top: 20px;
+    cursor:pointer;
+}
+.products{
+    margin: 30px;
+}

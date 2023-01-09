@@ -17,8 +17,39 @@ const SignUpSeller = ({homepage,signInSeller}) => {
         console.log("close")
     }
 
-    const onclickButton = () =>{
-        console.log("buton clicked");
+
+    const Signupsellerutility = async (username,myemail, userpassword) => {
+      const response = await fetch("http://localhost:3000/signUpSeller", {
+        method: "POST",
+        headers: {
+          "Content-type": "application/json",
+        },
+        body: JSON.stringify({
+          name:username,
+          email:myemail,
+          password:userpassword
+        }),
+      });
+    
+      const json = await response.json();
+      return json.message;
+    };
+
+    const onclickButton = async () =>{
+      const name=document.getElementById("name").value;
+      const email=document.getElementById("email").value;
+      const password= document.getElementById("password").value;
+  
+      const signUp=await Signupsellerutility(name,email,password);
+      if(signUp==="success"){
+        setOpen(false);
+        homepage();
+      }
+      else{
+        setOpen(false);
+        homepage();
+        console.log(signUp);
+      }
     }
 
     const onclickLink = (params) =>{
@@ -156,7 +187,7 @@ const SignUpSeller = ({homepage,signInSeller}) => {
                 <Button
                   variant="contained"
                   color="secondary"
-                  onClick={onclickButton}
+                  onClick={()=>onclickButton()}
                 >
                   Sign Up
                 </Button>
