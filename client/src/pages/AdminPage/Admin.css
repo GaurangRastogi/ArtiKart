@@ -9,4 +9,7 @@
 }
 .products{
     margin: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    gap:3rem;
 }

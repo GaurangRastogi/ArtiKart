@@ -246,8 +246,7 @@ exports.addProduct=async(req,res)=>{
       await newProduct.save();
 
       const product=await Product.find({name:req.body.name});
-      const productId=product._id;
-
+      const productId=product[0]._id;
       const newSeller = new Seller({
         sellerId:sellerId,
         myProduct:productId,

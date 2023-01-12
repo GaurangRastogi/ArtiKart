@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
-import Avatar from '@mui/material/Avatar';
-import Logo from "../../images/logo48.svg";
+import Logo from "../../images/logo.png";
 import Cart from "../../images/cart.svg";
 import Search from "../../images/search.svg";
 import SignOut from '../../images/signOut.svg';
@@ -25,7 +24,7 @@ function Navbar({homepage,home,searchUtility,cartClick}) {
 
   return (
     <div className="navbar">
-      <img src={Logo} alt="kart" width={"100px"} height={"100px"} />
+      <img src={Logo} alt="kart" width={"80px"} height={"80px"} />
       <h1 onClick={()=>home()}>Home</h1>
       <h1>About</h1>
       <h1>Contact</h1>

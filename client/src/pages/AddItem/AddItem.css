@@ -1,0 +1,52 @@
+.addItemPage{
+    margin: auto;
+    width: 60%;
+    margin-top: 70px;
+}
+.inputTag{
+    text-align: center;
+}
+table{
+    border: 4px solid black;
+    border-spacing: 20px;
+    border-radius: 10px;
+}
+
+td{
+    border: 2px solid grey;
+    padding: 10px;
+    border-radius: 10px;
+    font-weight: bolder;
+    font-size: larger;
+}
+
+td input,td button{
+    padding: 3px;
+    height: 30px;
+    border-radius: 10px;
+    border-color: antiquewhite;
+}
+
+td input{
+    width: 70%;
+    font-weight: bold;
+    font-size: large;
+    color: grey;
+}
+
+td button{
+    width: 40%;
+    height: 50px;
+    font-weight: bolder;
+    font-size: larger;
+    background-color:#2e186a;
+    color:white;
+    border: 1px solid #2e186a;  
+}
+
+td button:hover{
+    cursor:pointer;
+    background-color: rgb(236, 89, 36);
+    border:1px solid rgb(236,89,36);
+}
+

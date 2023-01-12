@@ -5,10 +5,11 @@ import Product from "../../Components/Product/Product";
 import "./Admin.css";
 import { useState, useEffect } from "react";
 import ProductPageAdmin from "../ProductPageAdmin/ProductPageAdmin";
+import AddItem from "../AddItem/AddItem";
 function Admin({ homepage, id }) {
   const [adminPageState, setAdminPageState] = useState("admin");
   const [myProducts, setMyProducts] = useState(null);
-
+  const [flag,setFlag]=useState(0);
   const getProducts = async () => {
     const response = await fetch(`http://localhost:3000/myproducts/${id}`);
     const json = await response.json();
@@ -16,8 +17,11 @@ function Admin({ homepage, id }) {
   };
   useEffect(() => {
     getProducts();
-  }, []);
+  }, [flag]);
 
+  const changeFlag=()=>{
+    setFlag(!flag);
+  }
   const adminHome = () => {
     setAdminPageState("admin");
   };
@@ -56,7 +60,7 @@ function Admin({ homepage, id }) {
           </div>
         </div>
       ) : adminPageState === "addProducts" ? (
-        <h1>Add Items</h1>
+        <AddItem id={id} toggleFlag={changeFlag}/>
       ) : adminPageState==="analytics" ?(
         <h1>Analytics</h1>
       ):(

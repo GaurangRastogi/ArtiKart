@@ -35,3 +35,11 @@
     color: #18216d;
     padding-left:8rem;
 }
+
+.right button{
+    margin-top: 10px;
+}
+
+.right>p{
+    text-align: center;
+}

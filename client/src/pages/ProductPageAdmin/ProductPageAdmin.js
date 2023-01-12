@@ -31,11 +31,7 @@ function ProductPageAdmin({ productId, sellerId }) {
         <div className="right">
           <h1>{product.name}</h1>
           <p>
-            Hello my name is Gaurang Rastogi, and I am giving you this product,
-            it is a pair of earphone and Hello my name is Gaurang Rastogi, and I
-            am giving you this product, it is a pair of earphone and Hello my
-            name is Gaurang Rastogi, and I am giving you this product, it is a
-            pair of earphone and I dont have any words jusy buy it.
+            {product.description}
           </p>
           <h1>{product.price}</h1>
           <button id="cart" onClick={() => deleteProduct()}>
