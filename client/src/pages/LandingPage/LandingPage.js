@@ -4,10 +4,12 @@ import Product from "../../Components/Product/Product";
 import ProductPage from "../ProductPage/ProductPage";
 import Cart from "../CartPage/Cart";
 import "./LandingPage.css";
+import About from "../AboutPage/About";
+import Contact from "../Contact/Contact";
 function LandingPage({ homepage, id }) {
   const [product, setProduct] = useState(null);
   const [landingState, setlandingState] = useState("mainPage");
-  
+
   const productClicked = (prod_id) => {
     setlandingState(prod_id);
   };
@@ -26,6 +28,14 @@ function LandingPage({ homepage, id }) {
   const setlandingStateFunction = (data) => {
     if (data) setlandingState(data._id);
   };
+
+  const setAboutPage = () => {
+    setlandingState("aboutPage");
+  };
+
+  const setContactPage = () => {
+    setlandingState("contactPage");
+  };
   return (
     <div className="landingPage">
       <Navbar
@@ -33,6 +43,8 @@ function LandingPage({ homepage, id }) {
         home={() => setlandingState("mainPage")}
         searchUtility={setlandingStateFunction}
         cartClick={cartPage}
+        about={setAboutPage}
+        contact={setContactPage}
       />
       {landingState === "mainPage" ? (
         <div
@@ -55,9 +67,13 @@ function LandingPage({ homepage, id }) {
             ))}
         </div>
       ) : landingState === "cartPage" ? (
-        <Cart userId={id} click={productClicked}/>
+        <Cart userId={id} click={productClicked} />
+      ) : landingState === "aboutPage" ? (
+        <About />
+      ) : landingState === "contactPage" ? (
+        <Contact />
       ) : (
-        <ProductPage productId={landingState} userId={id}/>
+        <ProductPage productId={landingState} userId={id} />
       )}
     </div>
   );

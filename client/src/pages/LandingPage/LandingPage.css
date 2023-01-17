@@ -1,6 +1,6 @@
 .landingPage{
     min-height: 100vh;
-    background-image: url('../../images/bgimage.jpg');
+    /* background-image: url('../../images/bgimage.jpg'); */
     background-size: cover;
 }
 /* .landImage{

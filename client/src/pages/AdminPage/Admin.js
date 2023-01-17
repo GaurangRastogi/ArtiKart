@@ -6,10 +6,12 @@ import "./Admin.css";
 import { useState, useEffect } from "react";
 import ProductPageAdmin from "../ProductPageAdmin/ProductPageAdmin";
 import AddItem from "../AddItem/AddItem";
+import About from "../AboutPage/About";
+import Contact from "../Contact/Contact";
 function Admin({ homepage, id }) {
   const [adminPageState, setAdminPageState] = useState("admin");
   const [myProducts, setMyProducts] = useState(null);
-  const [flag,setFlag]=useState(0);
+  const [flag, setFlag] = useState(0);
   const getProducts = async () => {
     const response = await fetch(`http://localhost:3000/myproducts/${id}`);
     const json = await response.json();
@@ -19,18 +21,25 @@ function Admin({ homepage, id }) {
     getProducts();
   }, [flag]);
 
-  const changeFlag=()=>{
+  const changeFlag = () => {
     setFlag(!flag);
-  }
+  };
   const adminHome = () => {
     setAdminPageState("admin");
   };
   const adminAnalytics = () => {
     setAdminPageState("analytics");
   };
-  const productPage = (productId) =>{
+  const productPage = (productId) => {
     setAdminPageState(productId);
-  }
+  };
+  const setAboutPage = () => {
+    setAdminPageState("aboutPage");
+  };
+
+  const setContactPage = () => {
+    setAdminPageState("contactPage");
+  };
   const addProducts = () => {
     setAdminPageState("addProducts");
   };
@@ -42,11 +51,19 @@ function Admin({ homepage, id }) {
         adminAnalytics={adminAnalytics}
         productPage={productPage}
         sellerId={id}
+        about={setAboutPage}
+        contact={setContactPage}
       />
       {adminPageState === "admin" ? (
         <div className="myProducts">
-          <img src={Add} alt={"AddItem"} width={"50px"} id="addItem" onClick={()=>addProducts()}/>
-          <br/>
+          <img
+            src={Add}
+            alt={"AddItem"}
+            width={"50px"}
+            id="addItem"
+            onClick={() => addProducts()}
+          />
+          <br />
           <div className="products">
             {myProducts !== null &&
               myProducts.length >= 0 &&
@@ -54,17 +71,21 @@ function Admin({ homepage, id }) {
                 <Product
                   product={prod}
                   key={`${prod._id}  ${i}`}
-                  click={() =>productPage(prod._id)}
+                  click={() => productPage(prod._id)}
                 />
               ))}
           </div>
         </div>
       ) : adminPageState === "addProducts" ? (
-        <AddItem id={id} toggleFlag={changeFlag}/>
-      ) : adminPageState==="analytics" ?(
+        <AddItem id={id} toggleFlag={changeFlag} />
+      ) : adminPageState === "analytics" ? (
         <h1>Analytics</h1>
-      ):(
-        <ProductPageAdmin productId={adminPageState} sellerId={id}/>
+      ) : adminPageState === "aboutPage" ? (
+        <About />
+      ) : adminPageState === "contactPage" ? (
+        <Contact />
+      ) : (
+        <ProductPageAdmin productId={adminPageState} sellerId={id} />
       )}
     </div>
   );

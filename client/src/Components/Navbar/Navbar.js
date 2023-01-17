@@ -4,7 +4,7 @@ import Cart from "../../images/cart.svg";
 import Search from "../../images/search.svg";
 import SignOut from '../../images/signOut.svg';
 import "./Navbar.css";
-function Navbar({homepage,home,searchUtility,cartClick}) {
+function Navbar({homepage,home,searchUtility,cartClick,about,contact}) {
   const signOut=document.getElementById('right');
  
   const utility=()=>{
@@ -26,8 +26,8 @@ function Navbar({homepage,home,searchUtility,cartClick}) {
     <div className="navbar">
       <img src={Logo} alt="kart" width={"80px"} height={"80px"} />
       <h1 onClick={()=>home()}>Home</h1>
-      <h1>About</h1>
-      <h1>Contact</h1>
+      <h1 onClick={()=>about()}>About</h1>
+      <h1 onClick={()=>contact()}>Contact</h1>
       <img src={Cart} alt="Cart" width={"40px"} height={"40px"} onClick={()=>cartClick()}/>
       <div className="search">
         <input type="search" placeholder="Search Product" id="productSearch"  onChange={()=>utility()}/>

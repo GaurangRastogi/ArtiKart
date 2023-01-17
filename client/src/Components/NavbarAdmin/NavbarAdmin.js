@@ -20,13 +20,13 @@ const searchUtility=async (productPage,sellerId,adminHome)=>{
 
 }
 
-function NavbarAdmin({homepage,adminHome,adminAnalytics,productPage,sellerId}) {
+function NavbarAdmin({homepage,adminHome,adminAnalytics,productPage,sellerId,about,contact}) {
   return (
     <div className="navbaradmin">
        <img src={Logo} alt="kart" width={"80px"} height={"80px"} />
       <h1 onClick={()=>adminHome()}>Home</h1>
-      <h1>About</h1>
-      <h1>Contact</h1>
+      <h1 onClick={()=>about()}>About</h1>
+      <h1 onClick={()=>contact()}>Contact</h1>
       <img src={Analytics} alt="Cart" width={"40px"} height={"40px"} onClick={()=>adminAnalytics()}/>
       <div className="search">
         <input type="search" placeholder="Search Product" id="productSearch"  onChange={null}/>
