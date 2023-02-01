@@ -1,7 +1,19 @@
-.product{
-    width: 300px;
+.contactPage{
+    width: 25%;
     height:400px;
     background-color:  #d7effa;
-    margin-top: 20px;
     border-radius: 10px;
+    margin:auto;
+    margin-top: 20px;
+    padding: 30px;
+}
+
+.contactPage h2{
+    color: cornflowerblue;
+    padding: 10px;
+    font-size: medium;
+}
+
+.contactPage span{
+    color: darkcyan;
 }

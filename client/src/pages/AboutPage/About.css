@@ -1,7 +1,29 @@
-.product{
-    width: 300px;
+.aboutPage{
+    width: 50%;
     height:400px;
     background-color:  #d7effa;
-    margin-top: 20px;
     border-radius: 10px;
+    margin:auto;
+    margin-top: 20px;
+}
+
+.aboutPage h1{
+    color: cornflowerblue;
+    text-align: center;
+    padding: 10px;
+}
+
+.aboutPage p{
+    font-size: larger;
+    font-weight: 600;
+    color:darkslategrey;
+    padding: 20px;
+}
+
+#aboutFoot{
+    text-align: end;
+    color:rgb(209, 83, 104);
+    font-style: italic;
+    display: inline-block;
+    margin-left: 180px;
 }

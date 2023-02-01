@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./About.css";
 function About() {
   return (
-    <div className="productPage">
+    <div className="aboutPage">
       <h1>Artikart - A place for Artisans</h1>
 
       <p>
@@ -16,7 +16,7 @@ function About() {
         register in Seller section.
       </p>
 
-      <i>Made with passion and blessings - Gaurang Rastogi</i>
+      <span id="aboutFoot">Made with passion and blessings - Gaurang Rastogi</span>
     </div>
   );
 }
